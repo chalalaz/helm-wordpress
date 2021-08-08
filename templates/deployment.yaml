@@ -16,7 +16,7 @@ spec:
         app: wordpress
     spec:
       containers:
-      - image: wordpress:5.7.2-php8.0-apache
+      - image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
         name: wordpress
         ports:
           - name: http

@@ -5,10 +5,10 @@
 replicaCount: 1
 
 image:
-  repository: nginx
+  repository: wordpress
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  tag: "5.7.2-php8.0-apache"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -94,3 +94,11 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+persistence:
+  wordpress:
+    storageClassName: aqua-storage
+    size: 6Gi
+  mysql:
+    storageClassName: aqua-storage
+    size: 6Gi

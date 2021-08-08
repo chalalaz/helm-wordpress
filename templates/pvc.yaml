@@ -6,12 +6,12 @@ metadata:
   labels:
     app: wordpress
 spec:
-  storageClassName: aqua-storage
+  storageClassName: {{ .Values.persistence.wordpress.storageClassName }}
   accessModes:
     - ReadWriteMany
   resources:
     requests:
-      storage: 6Gi
+      storage: {{ .Values.persistence.wordpress.size }}
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -20,9 +20,9 @@ metadata:
   labels:
     app: wordpress
 spec:
-  storageClassName: aqua-storage
+  storageClassName: {{ .Values.persistence.mysql.storageClassName }}
   accessModes:
     - ReadWriteMany
   resources:
     requests:
-      storage: 6Gi
+      storage: {{ .Values.persistence.mysql.size }}
