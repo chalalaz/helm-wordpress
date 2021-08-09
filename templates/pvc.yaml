@@ -6,9 +6,9 @@ metadata:
   labels:
     app: wordpress
 spec:
-  storageClassName: {{ .Values.persistence.wordpress.storageClassName }}
+  storageClassName: {{ .Values.persistence.wordpress.storageClass }}
   accessModes:
-    - ReadWriteMany
+    - {{ .Values.persistence.wordpress.accessMode }}
   resources:
     requests:
       storage: {{ .Values.persistence.wordpress.size }}
@@ -20,9 +20,9 @@ metadata:
   labels:
     app: wordpress
 spec:
-  storageClassName: {{ .Values.persistence.mysql.storageClassName }}
+  storageClassName: {{ .Values.persistence.mysql.storageClass }}
   accessModes:
-    - ReadWriteMany
+    - {{ .Values.persistence.mysql.accessMode }}
   resources:
     requests:
       storage: {{ .Values.persistence.mysql.size }}

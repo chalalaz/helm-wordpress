@@ -97,8 +97,10 @@ affinity: {}
 
 persistence:
   wordpress:
-    storageClassName: aqua-storage
+    storageClass: standard
+    accessMode: ReadWriteOnce
     size: 6Gi
   mysql:
-    storageClassName: aqua-storage
+    storageClass: standard
+    accessMode: ReadWriteOnce
     size: 6Gi
